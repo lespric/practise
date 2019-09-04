@@ -3,7 +3,8 @@
 ## 一、Git
 
 参考：[廖雪峰老师的git教程](https://www.liaoxuefeng.com/wiki/896043488029600)  
-[官方网站](https://git-scm.com/)  [国外网友总结文献](https://gitee.com/liaoxuefeng/learn-java/raw/master/teach/git-cheatsheet.pdf)
+[官方网站](https://git-scm.com/)  
+[国外网友总结文献](https://gitee.com/liaoxuefeng/learn-java/raw/master/teach/git-cheatsheet.pdf)  
 Git是最先进的分布式版本控制系统，可以实现文件命令管理、版本历史记录、远程协作合并等功能，相对于集中式，可以脱离中央服务器及网络，克隆到多个电脑，进行版本更迭；  
 ![git](https://github.com/lespric/practise/blob/master/task2-git/git/img/git.png)
 
