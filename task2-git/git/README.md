@@ -77,12 +77,12 @@ Git是最先进的分布式版本控制系统，可以实现文件命令管理�
 
 #### 4. 远程仓库--GitHub
 
-* **加密远程仓库**：为使只有自己的电脑或特定电脑才能修改，git本地仓库与GitHub远程仓库要通过**SSH加密**传输；
+* **加密远程仓库**：为使只有自己的电脑或特定电脑才能修改，git本地仓库与GitHub远程仓库要通过**SSH加密**传输；  
 ![SSH](https://github.com/lespric/practise/blob/master/task2-git/git/img/SSH.png)
   * step1：创建SSH key，无需设置密码，一路回车，默认生成在Users里：`$ ssh-keygen -t rsa -C "youremail@example.com"`
   * step2：复制**id_rsa.pub**文件里所有内容，在生成的路径里，找到id_rsa和id_rsa.pub两个文件，前者是密钥不可泄露，后者是公钥可以复制；
   * step3：在Github部署SSH key，在**setting**里，点击**Deploy keys**中的绿色按钮，标题随便填，复制内容输入到文本框后，点击**add key**即可；
-  * step4：第一次使用Git的clone或者push命令连接GitHub时，会得到一个警告，输入**yes**回车通过验证即可，后续不会再出现警告；
+  * step4：第一次使用Git的clone或者push命令连接GitHub时，会得到一个警告，输入**yes**回车通过验证即可，后续不会再出现警告；  
   ![Deploy SSH](https://github.com/lespric/practise/blob/master/task2-git/git/img/Deploy%20keys.png)
 * **同步远程仓库**：使git本地仓库与GitHub远程仓库(origin)进行远程同步，即可备份本地仓库，又可方便他人查看来协作修改；
   * step1：关联远程仓库：`$ git remote add origin git@github.com:账号名/仓库名.git`
@@ -105,13 +105,13 @@ Git是最先进的分布式版本控制系统，可以实现文件命令管理�
 参考：[VSCode使用git](https://www.imooc.com/video/18983)
 
 * **同步到VSCode**：在VSCode打开已下载的仓库内容文件夹，即在左侧显示文件夹内容的目录；
-* **修改文件夹内容**：在左侧**PRACTISE**，新增文件或修改文件，每次改动，左侧工具栏第三个图标会显示修改文件的个数；
+* **修改文件夹内容**：在左侧**PRACTISE**，新增文件或修改文件，每次改动，左侧工具栏第三个图标会显示修改文件的个数；  
 ![VSCode content](https://github.com/lespric/practise/blob/master/task2-git/git/img/VScode%20content.png)
-* **添加到暂存盘**：点击第三个图标，按Shift键选择全部修改文件，点+号一次性添加全部；
+* **添加到暂存盘**：点击第三个图标，按Shift键选择全部修改文件，点+号一次性添加全部；  
 ![VSCode add](https://github.com/lespric/practise/blob/master/task2-git/git/img/VSCode%20add.png)
-* **提交到本地仓库**：在**STAGED CHANGES**，按Shift键选择全部修改文件，点击√号，弹出命令面板，再输入**Commit message**回车即可全部提交；
+* **提交到本地仓库**：在**STAGED CHANGES**，按Shift键选择全部修改文件，点击√号，弹出命令面板，再输入**Commit message**回车即可全部提交；  
 ![VSCode commit](https://github.com/lespric/practise/blob/master/task2-git/git/img/VSCode%20commit.png)
-* **推送到远程仓库**：在√号旁边的···号，点击**推送**，即可全部推送到远程仓库里，生成文件夹会与本地路径相一致，且会覆盖同名文件；
+* **推送到远程仓库**：在√号旁边的···号，点击**推送**，即可全部推送到远程仓库里，生成文件夹会与本地路径相一致，且会覆盖同名文件；  
 ![VSCode upload](https://github.com/lespric/practise/blob/master/task2-git/git/img/VSCode%20upload.png)
 
 #### 6. 分支管理
@@ -120,7 +120,7 @@ Git是最先进的分布式版本控制系统，可以实现文件命令管理�
   * HEAD作为指针，指向当前分支，一般为master，且master也有指针，指向当前版本；
   * 当创建新分支，即克隆master的版本到新分支，master的指针保留，HEAD指针指向新分支的版本，其后任何修改都提交到新分支；
   * 直到新分支合并到master，即master的落后指针移到新分支当前版本，删除新分支的指针，HEAD指针回到master即完成；
-  * 主分支master作为稳定版本，一般不在其上面工作，则是在新分支dev上工作，并每个成员在dev上再有新分支工作，先合并到dev，再合并到master；
+  * 主分支master作为稳定版本，一般不在其上面工作，则是在新分支dev上工作，并每个成员在dev上再有新分支工作，先合并到dev，再合并到master；  
   ![branch](https://github.com/lespric/practise/blob/master/task2-git/git/img/branch.png)
 
 * **创建及合并分支**
@@ -129,7 +129,7 @@ Git是最先进的分布式版本控制系统，可以实现文件命令管理�
   * **切换分支**，当新分支的文件修改并提交完后，切回主分支：`$ git checkout master`
   * **合并分支**，把新分支提交的内容，合并指定分支到当前分支：`$ git merge dev`
     * 一般为**Fast forward**模式快速合并，会丢失新分支的信息；
-    * 如要保留新分支的信息即合并历史，以便在git status查看合并路线情况：`$ git merge --no-ff -m "注释" dev`
+    * 如要保留新分支的信息即合并历史，以便在git status查看合并路线情况：`$ git merge --no-ff -m "注释" dev`  
     ![branch merge](https://github.com/lespric/practise/blob/master/task2-git/git/img/branch%20merge.png)
   * **删除分支**，把已合并的分支删除：`$ git branch -d dev`
     * 若dev分支未合并，需要**强行删除**：`$ git branch -D dev`
@@ -180,7 +180,7 @@ Git是最先进的分布式版本控制系统，可以实现文件命令管理�
 
 #### 8. 配置Git
 
-* **忽略特殊文件**，在Git工作区的根目录下创建一个特殊的[.gitignore配置文件](https://github.com/github/gitignore)，而.gitignore文件需在文本编辑器另存为来生成，然后把要忽略的文件名填进去，再提交该文件到版本库，Git就会自动忽略这些文件；
+* **忽略特殊文件**，在Git工作区的根目录下创建一个特殊的[.gitignore配置文件](https://github.com/github/gitignore)，而.gitignore文件需在文本编辑器另存为来生成，然后把要忽略的文件名填进去，再提交该文件到版本库，Git就会自动忽略这些文件；  
 ![gitignore](https://github.com/lespric/practise/blob/master/task2-git/git/img/gitignore.png)
   * 如想强行添加已忽略的文件App.class：`$ git add -f App.class`
   * 如想查看App.class的名字在.gitignore文件中的位置：`$ git check-ignore -v App.class`
